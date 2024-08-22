@@ -1,7 +1,6 @@
-console.log('Hello World')
 // My Carbon Footprint
 
-// Members of househome
+// Members of household
 const myHousehold = 14;
 
 // Size of home
@@ -24,4 +23,12 @@ const myRecycling = 18;
 
 // Annual transportation 
 const myDriving = 6;
+
+// Total Carbon Footprint
+const myCarbonTotal = myHousehold + myHouse + myFood + myWater
+ + myPurchases + myWaste + myRecycling + myDriving; 
+
+ console.log("Total Carbon Footprint:", myCarbonTotal);
+
+ document.getElementById('carbon-footprint').textContent = `Total Carbon Footprint: ${myCarbonTotal}`;
 

@@ -36,19 +36,26 @@ function determineHouseSizePts(houseSize) {
   return houseSizePoints;
 }
 
-// Global Scope
+// Function to calculate and store results
 function start(numberInHouseHold, houseSize) {
-  // Call function to determine household points
   const houseHoldPts = determineHouseHoldPts(numberInHouseHold);
-
-  // Call function to determine house size points
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPts + houseSizePts;
-  cfpData.push(numberInHouseHold, houseSize, houseHoldPts, houseSizePts, total);
+
+  // Push results as an array
+  cfpData.push([numberInHouseHold, houseSize, houseHoldPts, houseSizePts, total]);
 }
 
-function displayOutput(){
-  
+// Display output in HTML
+function displayOutput() {
+  for (arr of cfpData){
+    console.log(arr)
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
+    newP.textContent = ` With a household of ${arr[0]}, your household score is ${arr[2]}.
+    With a house size ${arr[1]}, your house size score is ${arr[3]}. Your Carbon Footprint total is ${arr[4]}`;
+    output.appendChild(newP);
+  }
 }
 
 start(5, "apt");

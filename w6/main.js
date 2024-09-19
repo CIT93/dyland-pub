@@ -36,11 +36,13 @@ function determineHouseSizePts(houseSize) {
   return houseSizePoints;
 }
 
-function start(numberInHouseHold, houseSize) {
+function start(_firstName, _lastName, numberInHouseHold, houseSize) {
   const houseHoldPts = determineHouseHoldPts(numberInHouseHold);
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPts + houseSizePts;
   cfpData.push({
+    firstName: _firstName,
+    lastName: _lastName,
     numberInHouseHold: numberInHouseHold,
     houseSize: houseSize,
     houseHoldPts: houseHoldPts,
@@ -52,16 +54,18 @@ function start(numberInHouseHold, houseSize) {
 function displayOutput() {
  
   for (obj of cfpData) {
-    console.log(obj);   
+    console.log(obj);
+    const newH1 = document.createElement("h1");
+    newH1.textContent = `Carbon Footprint Points for ${obj.firstName} ${obj.lastName}:`;
     const newH2 = document.createElement("h2");
-    newH2.textContent = `Carbon Footprint ${obj.total}`;
+    newH2.textContent = `Carbon Footprint Points: ${obj.total}`;
     const newH3 = document.createElement("h3");
     newH3.textContent = `Based on household and size of home`;
     const newP = document.createElement("p");
     newP.textContent = `With a household of ${obj.numberInHouseHold}, your household score is ${obj.houseHoldPts}. 
   With a house size of ${obj.houseSize}, your house size score is ${obj.houseSizePts}. 
   Your Carbon Footprint total is ${obj.total}.`;
-
+    OUTPUT.appendChild(newH1);
     OUTPUT.appendChild(newH2);
     OUTPUT.appendChild(newH3);
     OUTPUT.appendChild(newP);
@@ -70,18 +74,12 @@ function displayOutput() {
 
 FORM.addEventListener('submit', function(e){
   e.preventDefault();
-  //console.log('I am inside the function');
-  //console.log(e);
   const firstName = FORM.firstname.value;
   const lastName = FORM.lastname.value;
   const numberInHouseHold = parseInt(FORM.household.value);
   const houseSize = FORM.housesize.value;
-  start(numberInHouseHold, houseSize);
+  start(firstName, lastName, numberInHouseHold, houseSize);
   OUTPUT.innerHTML = "";
   displayOutput();
   FORM.reset();
 });
-
-// Yes. My apartment returns 2 points. 
-// If it wasn't working, I'd check to see if the option value in the HTML matched the respective variables in the javascript.
-// Formatting the form to validate our data saves us from doing all the work in javascript and ensures good input.

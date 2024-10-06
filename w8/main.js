@@ -4,6 +4,7 @@ import { start } from "./carbonfootprint.js";
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 const cfpData = [];
+const editingIndex = null;
 
 FORM.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -13,6 +14,12 @@ FORM.addEventListener("submit", function (e) {
   const houseSize = FORM.housesize.value;
   start(numberInHouseHold, houseSize, firstName, lastName, cfpData);
   OUTPUT.innerHTML = "";
+
+  if (editingIndex !== null) {
+    data.splice(editingIndex, 1);
+    editingIndex = null;
+  }
+
   renderTbl(cfpData);
   FORM.reset();
 });

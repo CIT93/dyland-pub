@@ -21,12 +21,16 @@ function renderTblHeading() {
   return table;
 }
 
-function renderTbl(data) {
+export function renderTbl(data) {
   TBL.innerHTML = "";
-  const table = renderTblHeading();
-  const tbody = renderRow(data);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
+  if (data.length > 0) {
+    const table = renderTblHeading();
+    const tbody = renderRow(data);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+  } else {
+    TBL.innerHTML = "";
+  }
 }
 
 function renderRow(data) {
@@ -47,13 +51,7 @@ function renderRow(data) {
       }
     }
 
-    const tblRowArr = [
-      `${obj.firstName} ${obj.lastName}`,
-      obj.houseHoldPts,
-      obj.houseSizePts,
-      obj.total,
-    ];
-
+    const tblRowArr = [];
     tblRowArr.forEach(function (value) {
       const td = document.createElement("td");
       td.textContent = value;
@@ -80,12 +78,15 @@ function renderButtons(index, data) {
   });
 
   btnEdit.addEventListener("click", function () {
-    console.log("edit button");
+    form.elements["firstname"].value = data[index].firstName;
+    form.elements["lastname"].value = data[index].lastName;
+    form.elements["household"].value = data[index].numberInHouseHold;
+    form.elements["housesize"].value = data[index].houseSize;
+
+    console.log(`Editing ${index}`);
   });
 
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
   return td;
 }
-
-export { renderTbl };

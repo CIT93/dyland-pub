@@ -35,8 +35,8 @@ const determineHouseSizePts = (houseSize) => {
 }
 
 export const start = (
-  numberInHouseHold,
-  houseSize,
+  numberInHouseHold = 1,
+  houseSize = 'medium',
   firstName,
   lastName
 ) => {

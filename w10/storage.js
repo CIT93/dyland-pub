@@ -1,5 +1,5 @@
-const saveLS = (cfpData) => {
-  const serializedArr = JSON.stringify(cfpData);
+const saveLS = (...dataSet) => {
+  const serializedArr = JSON.stringify(dataSet.flat());
   localStorage.setItem("cfp", serializedArr);
 };
 

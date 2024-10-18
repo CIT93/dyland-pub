@@ -62,22 +62,8 @@ FORM.addEventListener("submit", function (e) {
   LAST.innerText = "";
 });
 
-// Reviewing functions: 
-// Inside the paranthesis is a "parameter"
-// "= 10" is a default value
-//const add2 = function (a = 10){
-  const add2 = function (...a){
-    return 2 + a[3];
-  }
-  // Inside the parathesis is an "argument"
-  const result = add2(1, 2, 3, 4);
-  // A "spread argument" holds an array of values to pass
-  
-  const a = 3;
-  
-  (function(a){
-    console.log(a);
-    console.log("inside IIFA");
-  })(a);
-  
-  // End Reviewing Functions
+// Arrow Function
+
+const add2 = a => 2 + a;
+
+const result = add2(100);

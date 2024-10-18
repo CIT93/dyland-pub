@@ -1,7 +1,7 @@
 import { TBL, FORM, editingIndex } from "./global.js";
 import { saveLS } from "./storage.js";
 
-const renderTblHeading = function () {
+const renderTblHeading = () => {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -22,7 +22,7 @@ const renderTblHeading = function () {
   return table;
 }
 
-export const renderTbl = function (data) {
+export const renderTbl = (data) => {
   TBL.innerHTML = "";
   if (Array.isArray(data) && data.length > 0) {
     const table = renderTblHeading();
@@ -34,7 +34,7 @@ export const renderTbl = function (data) {
   }
 }
 
-const renderRow = function (data) {
+const renderRow = (data) => {
   const tbody = document.createElement("tbody");
   data.forEach(function (obj, index) {
     if (!obj || typeof obj !== "object") {
@@ -62,7 +62,7 @@ const renderRow = function (data) {
   return tbody;
 }
 
-const renderButtons = function (index, data) {
+const renderButtons = (index, data) => {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   btnEdit.textContent = "Edit";

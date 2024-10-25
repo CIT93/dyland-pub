@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="main.js"></script>
-    <title>Week 10</title>
+    <title>Week 11</title>
     <link rel="stylesheet" href="style.CSS">
 </head>
 
 <body>
-    <h1>Week 10</h1>
+    <h1>Week 11</h1>
     <form id="form">
         <fieldset>
             <legend>Calculating Your Carbon Footprint Points</legend>
@@ -38,6 +38,20 @@
                     <option value="large">Large</option>
                 </select>
             </div>
+            <div>
+                <label for="food">What best describes your food consumption:</label>
+                <select id="food" name="food" required>
+                    <option value="">---Select food option---</option>
+                    <option value="daily_meat">Domestic meat daily</option>
+                    <option value="few_times_meat">Domestic meat few times a week</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan_wild_meat">Vegan or wild meat</option>
+                    <option value="prepackaged">Mostly prepackaged food</option>
+                    <option value="balance">Balance of fresh and prepackaged food</option>
+                    <option value="fresh_local">Fresh, locally grown, or hunted food</option>
+                </select>
+              </div>
+              
             <button type="submit">Submit</button>
         </fieldset>
     </form>

@@ -1,5 +1,6 @@
 import { TBL, FORM, editingIndex } from "./global.js";
 import { saveLS } from "./storage.js";
+//import { FP } from "./fp.js"; 
 
 const renderTblHeading = () => {
   const table = document.createElement("table");
@@ -46,9 +47,9 @@ const renderRow = (data) => {
 
     for (const [key, value] of Object.entries(obj)) {
       if (
-        key !== "lastName" &&
-        key !== "houseHoldPts" &&
-        key !== "houseSizePts"
+        key !== "last" &&
+        key !== "houseHoldPoints" &&
+        key !== "houseSizePoints"
       ) {
         const td = document.createElement("td");
         td.textContent = value;
@@ -77,11 +78,11 @@ const renderButtons = (index, data) => {
   });
 
   btnEdit.addEventListener("click", function () {
-    FORM.elements["firstname"].value = data[index].firstName;
-    FORM.elements["lastname"].value = data[index].lastName;
-    FORM.elements["household"].value = data[index].numberInHouseHold;
+    FORM.elements["firstname"].value = data[index].first;
+    FORM.elements["lastname"].value = data[index].last;
+    FORM.elements["household"].value = data[index].houseHold;
     FORM.elements["housesize"].value = data[index].houseSize;
-    
+    FORM.elements["food"].value = data[index].food;
   });
 
   td.appendChild(btnEdit);

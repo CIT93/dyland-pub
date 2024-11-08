@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1GYk0VhC5MRo7Zr/2ngiXtUWXIVzO3BC1wKH5Tw0n6H" crossorigin="anonymous">
-
-    <title>Week 12</title>
+    <title>Week 13</title>
 </head>
+
 <body>
-    <div id="output"></div>
-    <br>
     <form id="form">
         <fieldset>
             <legend>Time to get FIT!</legend>
 
             <div>
                 <label for="exercise">Type of Exercise:</label>
-                <select id="exercise" name="exercise" required>
+                <select id="exercise" name="exercise">
                     <option value="">---Select Exercise---</option>
                     <option value="pushups">Pushups</option>
                     <option value="situps">Situps</option>
                     <option value="squats">Squats</option>
-                    <option value="jumping_jacks">Jumping Jacks</option>
+                    <option value="jumping jacks">Jumping Jacks</option>
                 </select>
             </div>
 
             <div>
                 <label for="reps">Number of Reps:</label>
-                <input type="number" id="reps" name="reps" min="1" required>
+                <input type="number" id="reps" name="reps" min="1">
             </div>
 
             <div>
                 <label for="intensity">Intensity Level:</label>
-                <select id="intensity" name="intensity" required>
+                <select id="intensity" name="intensity">
                     <option value="">---Select Intensity---</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
@@ -44,11 +42,15 @@
 
             <div>
                 <label for="time">Time (in minutes):</label>
-                <input type="number" id="time" name="time" min="1" required>
+                <input type="number" id="time" name="time" min="1">
             </div>
 
             <button type="submit">Submit</button>
         </fieldset>
     </form>
+<section>
+    <div id="output"></div>
+    </section>
 </body>
+
 </html>

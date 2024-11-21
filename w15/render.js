@@ -1,6 +1,6 @@
 import { TBL, FORM, editingIndex } from "./global.js";
 import { saveLS } from "./storage.js";
-//import { FP } from "./fp.js"; 
+import { calculateAverageFootprint } from "./average.js";
 
 const renderTblHeading = () => {
   const table = document.createElement("table");
@@ -30,6 +30,8 @@ export const renderTbl = (data) => {
     const table = renderTblHeading();
     const tbody = renderRow(data);
     table.appendChild(tbody);
+    const averageRow = renderAverageRow(data);
+    table.appendChild(averageRow);
     TBL.appendChild(table);
   } else {
     TBL.innerHTML = "<p>No data available</p>";
@@ -84,3 +86,18 @@ const renderButtons = (index, data) => {
   td.appendChild(btnDel);
   return td;
 }
+
+const renderAverageRow = (data) => {
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+
+  td.setAttribute("colspan", 5);
+  td.textContent = "Average Footprint Score";
+
+  const averageCell = document.createElement("td");
+  averageCell.textContent = calculateAverageFootprint(data);
+
+  tr.appendChild(td);
+  tr.appendChild(averageCell);
+  return tr;
+};

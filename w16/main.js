@@ -31,6 +31,7 @@ FORM.addEventListener("submit", function (e) {
   const food = FORM.food.value;
   const dishwasherUsage = parseInt(FORM.dishwasher.value) || 0;
   const hasWasher = FORM.washer.checked;
+  const itemsPurchased = parseInt(FORM.purchases.value) || 0;
 
   let message = [];
 
@@ -48,7 +49,14 @@ FORM.addEventListener("submit", function (e) {
     return;
   }
 
-  const fpObj = new FP(firstName, lastName, numberInHouseHold, houseSize, food, dishwasherUsage, hasWasher);
+  const fpObj = new FP(firstName,
+    lastName,
+    numberInHouseHold,
+    houseSize,
+    food,
+    dishwasherUsage,
+    hasWasher,
+    itemsPurchased);
 
   if (editingIndex !== null) {
     cfpData[editingIndex] = fpObj;

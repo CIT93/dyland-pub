@@ -1,5 +1,5 @@
 class FP {
-  constructor(first, last, houseHold, houseSize, food, dishwasherUsage, hasWasher) {
+  constructor(first, last, houseHold, houseSize, food, dishwasherUsage, hasWasher, itemsPurchased) {
     this.first = first;
     this.last = last;
     this.houseHold = houseHold;
@@ -7,16 +7,19 @@ class FP {
     this.food = food;
     this.dishwasherUsage = dishwasherUsage;
     this.hasWasher = hasWasher;
+    this.itemsPurchased = itemsPurchased;
 
     const householdPoints = new HouseHoldPts(this.houseHold);
     const housePoints = new House(this.houseSize);
     const foodPoints = new Food(this.food);
     const waterPoints = new Water(this.dishwasherUsage, this.hasWasher);
+    const purchasePoints = new Purchases(this.itemsPurchased);
 
     this.houseHoldPoints = householdPoints.getHouseHoldPoints();
     this.houseSizePoints = housePoints.getHouseSizePoints();
     this.foodPoints = foodPoints.getFoodPoints();
     this.waterPoints = waterPoints.getWaterPoints();
+    this.purchasePoints = purchasePoints.getPurchasePoints();
 
     this.totalPoints = this.total();
   }
@@ -26,7 +29,8 @@ class FP {
       this.houseHoldPoints +
       this.houseSizePoints +
       this.foodPoints +
-      this.waterPoints
+      this.waterPoints +
+      this.purchasePoints
     );
   }
 
@@ -129,6 +133,31 @@ class Water {
 
   getWaterPoints() {
     return this.waterPoints;
+  }
+}
+
+class Purchases {
+  constructor(itemsPurchased) {
+    this.itemsPurchased = itemsPurchased;
+    this.purchasePoints = this.calculatePurchasePoints();
+  }
+
+  calculatePurchasePoints() {
+    if (this.itemsPurchased > 7) {
+      return 10;
+    } else if (this.itemsPurchased >= 5) {
+      return 8;
+    } else if (this.itemsPurchased >= 3) {
+      return 6;
+    } else if (this.itemsPurchased >= 1) {
+      return 4;
+    } else {
+      return 2; 
+    }
+  }
+
+  getPurchasePoints() {
+    return this.purchasePoints;
   }
 }
 

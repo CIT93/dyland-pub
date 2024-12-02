@@ -12,6 +12,7 @@ const renderTblHeading = () => {
     "HouseSize",
     "Food",
     "Water",
+    "Items Purchased",
     "Footprint Total",
     "Actions",
   ];
@@ -47,7 +48,7 @@ const renderRow = (data) => {
     }
 
     const tr = document.createElement("tr");
-    const keys = ["first", "houseHold", "houseSize", "food", "waterPoints", "totalPoints"];
+    const keys = ["first", "houseHold", "houseSize", "food", "waterPoints", "purchasePoints", "totalPoints"];
 
     keys.forEach((key) => {
       const td = document.createElement("td");
@@ -82,8 +83,7 @@ const renderButtons = (index, data) => {
     FORM.elements["housesize"].value = data[index].houseSize;
     FORM.elements["food"].value = data[index].food;
     FORM.elements["water"].value = data[index].waterPoints.toString();
-    //FORM.elements["dishwasher"].value = data[index].dishwasherUsage;
-    //FORM.elements["washer"].checked = data[index].hasWasher;
+    FORM.elements["purchases"].value = data[index].purchasePoints;
   });
 
   td.appendChild(btnEdit);
@@ -95,7 +95,7 @@ const renderAverageRow = (data) => {
   const tr = document.createElement("tr");
   const td = document.createElement("td");
 
-  td.setAttribute("colspan", 4);
+  td.setAttribute("colspan", 6);
   td.textContent = "Average Footprint Score";
 
   const averageCell = document.createElement("td");

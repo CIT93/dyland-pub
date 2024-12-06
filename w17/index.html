@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="main.js"></script>
+    <title>Week 17</title>
+    <link rel="stylesheet" href="style.CSS">
+</head>
+
+<body>
+    <h1>Week 17</h1>
+    <form id="form">
+        <fieldset>
+            <legend>Calculating Your Carbon Footprint Points</legend>
+            <div>
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname">
+                <div id="firstNameError" style="color: red;"></div>
+            </div>
+            <div>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname">
+                <div id="lastNameError" style="color: red;"></div>
+            </div>
+            <div>
+                <label for="household">Count the members of your household:</label>
+                <input type="number" id="household" name="household" min="1" max="6">
+            </div>
+            <div>
+                <label for="housesize">Consider the size of your home:</label>
+                <select id="housesize" name="housesize">
+                    <option value="">---Select size of home---</option>
+                    <option value="apt">Apartment</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+            <div>
+                <label for="food">What best describes your food consumption:</label>
+                <select id="food" name="food" required>
+                    <option value="">---Select food option---</option>
+                    <option value="daily_meat">Domestic meat daily</option>
+                    <option value="few_times_meat">Domestic meat few times a week</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan_wild_meat">Vegan or wild meat</option>
+                    <option value="prepackaged">Mostly prepackaged food</option>
+                    <option value="balance">Balance of fresh and prepackaged food</option>
+                    <option value="fresh_local">Fresh, locally grown, or hunted food</option>
+                </select>
+            </div>
+            <div>
+                <label for="dishwasher">Dishwasher/Washing Machine Usage (per week):</label>
+                <input type="number" id="dishwasher" name="dishwasher" min="0" step="1">
+                <br>
+                <label for="washer">Do you have both a dishwasher and a washing machine?</label>
+                <input type="checkbox" id="washer" name="washer">
+            </div>
+            <div>
+                <label for="purchases">Number of New Household Purchases (per year):</label>
+                <input type="number" id="purchases" name="purchases" min="0" step="1" />
+            </div>
+            <div>
+                <label for="garbageCansPerWeek">Garbage Cans Filled Per Week:</label>
+                <input type="number" id="garbageCansPerWeek" name="garbageCansPerWeek" min="0" step="0.5"
+                    placeholder="Enter the number of garbage cans" />
+            </div>
+            <div>
+                <label for="recyclingCategories">Recycling Categories:</label>
+                <div id="recyclingCategories">
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="glass" />
+                    Glass
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="plastic" />
+                    Plastic
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="paper" />
+                    Paper
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="aluminum" />
+                    Aluminum
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="steel" />
+                    Steel
+                  </label>
+                  <label>
+                    <input type="checkbox" name="recyclingCategories" value="compost" />
+                    Food Waste (Composting)
+                  </label>
+                </div>
+                <div>
+                    <label for="vehicleMileage">Personal Vehicle Miles Per Year:</label>
+                    <input type="number" id="vehicleMileage" name="vehicleMileage" min="0" step="1000" placeholder="Enter miles driven">
+                </div>
+                <div>
+                    <label for="publicTransportMiles">Public Transportation Miles Per Year:</label>
+                    <input type="number" id="publicTransportMiles" name="publicTransportMiles" min="0" step="1000" placeholder="Enter miles traveled">
+                </div>
+                <div>
+                    <label for="flightType">Flight Distance:</label>
+                    <select id="flightType" name="flightType">
+                        <option value="">---Select travel distance---</option>
+                        <option value="short">Short (within your state)</option>
+                        <option value="medium">Medium (nearby state/country)</option>
+                        <option value="long">Long (another continent)</option>
+                    </select>
+                </div>
+                
+
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+
+    <!-- Error message -->
+    <div id="error" style="color: red;"></div>
+    <div id="tab-data"></div>
+</body>
+
+</html>

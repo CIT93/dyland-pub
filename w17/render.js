@@ -13,8 +13,8 @@ const renderTblHeading = () => {
     "Food",
     "Water",
     "Purchases",
-     "Waste",
-     "Transportation",
+    "Waste",
+    "Transportation",
     "Footprint Total",
     "Actions",
   ];
@@ -50,7 +50,8 @@ const renderRow = (data) => {
     }
 
     const tr = document.createElement("tr");
-    const keys = ["first",
+    const keys = [
+      "first",
       "houseHold",
       "houseSize",
       "food",
@@ -58,7 +59,8 @@ const renderRow = (data) => {
       "purchasePoints",
       "wastePoints",
       "transportationPoints",
-      "totalPoints"];
+      "totalPoints",
+    ];
 
     keys.forEach((key) => {
       const td = document.createElement("td");
@@ -92,13 +94,13 @@ const renderButtons = (index, data) => {
     FORM.elements["household"].value = data[index].houseHold;
     FORM.elements["housesize"].value = data[index].houseSize;
     FORM.elements["food"].value = data[index].food;
-  
+
     FORM.elements["dishwasher"].value = data[index].dishwasherUsage;
     FORM.elements["washer"].checked = data[index].hasWasher;
-  
+
     FORM.elements["purchases"].value = data[index].itemsPurchased;
     FORM.elements["garbageCansPerWeek"].value = data[index].garbageCansPerWeek;
-  
+
     document
       .querySelectorAll('input[name="recyclingCategories"]')
       .forEach((checkbox) => {
@@ -106,14 +108,14 @@ const renderButtons = (index, data) => {
           checkbox.value
         );
       });
-  
+
     FORM.elements["vehicleMileage"].value = data[index].vehicleMileage;
-    FORM.elements["publicTransportMiles"].value = data[index].publicTransportMiles;
+    FORM.elements["publicTransportMiles"].value =
+      data[index].publicTransportMiles;
     FORM.elements["flightType"].value = data[index].flightType;
-  
+
     editingIndex = index;
   });
-  
 
   td.appendChild(btnEdit);
   td.appendChild(btnDel);

@@ -32,14 +32,16 @@ FORM.addEventListener("submit", function (e) {
   const dishwasherUsage = parseInt(FORM.dishwasher.value) || 0;
   const hasWasher = FORM.washer.checked;
   const itemsPurchased = parseInt(FORM.purchases.value) || 0;
-  const garbageCansPerWeek = parseFloat(document.getElementById("garbageCansPerWeek").value);
+  const garbageCansPerWeek = parseFloat(
+    document.getElementById("garbageCansPerWeek").value
+  );
   const recyclingCategories = Array.from(
     document.querySelectorAll('input[name="recyclingCategories"]:checked')
-  ).map(checkbox => checkbox.value);
+  ).map((checkbox) => checkbox.value);
   const vehicleMileage = parseInt(FORM.vehicleMileage.value) || 0;
   const publicTransportMiles = parseInt(FORM.publicTransportMiles.value) || 0;
   const flightType = FORM.flightType.value;
-  
+
   let message = [];
 
   if (!firstName) {
@@ -56,7 +58,8 @@ FORM.addEventListener("submit", function (e) {
     return;
   }
 
-  const fpObj = new FP(firstName,
+  const fpObj = new FP(
+    firstName,
     lastName,
     numberInHouseHold,
     houseSize,
@@ -77,11 +80,9 @@ FORM.addEventListener("submit", function (e) {
   } else {
     cfpData.push(fpObj);
   }
-  
+
   saveLS(cfpData);
   renderTbl(cfpData);
-
-
 
   FORM.reset();
   FIRST.innerText = "";

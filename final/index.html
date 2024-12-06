@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Tip Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Scientific Tip Calculator</h1>
+
+    <form id="tipCalculatorForm" class="p-4 bg-white rounded shadow-sm">
+      <div class="mb-3">
+        <label for="userName" class="form-label">Name</label>
+        <input type="text" id="userName" name="userName" class="form-control" placeholder="Enter your name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="billAmount" class="form-label">Bill Amount ($)</label>
+        <input type="number" id="billAmount" name="billAmount" class="form-control" step="0.01" min="0" placeholder="Enter bill amount" required>
+        <div id="billAmountError" class="form-text text-danger"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="serviceQuality" class="form-label">Service Quality</label>
+        <select id="serviceQuality" name="serviceQuality" class="form-select" required>
+          <option value="" disabled selected>Select service quality</option>
+          <option value="Excellent">Excellent</option>
+          <option value="Good">Good</option>
+          <option value="Okay">Okay</option>
+          <option value="Poor">Poor</option>
+          <option value="Terrible">Terrible</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="isSatisfied" class="form-label">Are you especially satisfied?</label>
+        <select id="isSatisfied" name="isSatisfied" class="form-select" required>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+
+      <div class="form-check mb-3">
+        <input type="checkbox" id="randomizerToggle" name="randomizerToggle" class="form-check-input">
+        <label for="randomizerToggle" class="form-check-label">Enable Randomizer</label>
+      </div>
+      <div>
+      <label for="numPeople">Number of People to Split:</label>
+      <input type="number" id="numPeople" name="numPeople" min="1" placeholder="Enter number of people" />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Calculate</button>
+    </form>
+
+    <h2 class="text-center mt-5">Calculation Results</h2>
+    <div id="output" class="bg-white p-4 rounded shadow-sm"></div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
